@@ -10,8 +10,6 @@ const RestaurantItem = ({ data, onPress }) => {
     const categories = data.categories.map(({name}) => name)
     const spacer = <Text style={styles.spacer}>•</Text>
 
-    console.log(data.photo?.url)
-
     return (
         <Pressable
             style={styles.button}

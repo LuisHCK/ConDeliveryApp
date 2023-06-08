@@ -148,6 +148,8 @@ query GetRestaurant($restaurantId: ID)  {
           createdAt
           updatedAt
           publishedAt
+          deliveryTax
+          taxFreeMinTotal
           photo {
             data {
               id
@@ -204,4 +206,30 @@ query GetRestaurant($restaurantId: ID)  {
       }
     }
   }
+`
+
+export const CREATE_ORDER = gql`
+    mutation CreateOrder($data: OrderInput!) {
+        createOrder(data: $data) {
+        data {
+            attributes {
+            note
+            orderItems {
+                id
+                name
+                quantity
+                price
+                item_id
+            }
+            total
+            userAddress {
+                id
+                address
+                name
+                phone
+            }
+            }
+        }
+        }
+    }
 `

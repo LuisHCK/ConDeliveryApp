@@ -4,7 +4,6 @@ import colors, { transparentize } from 'src/assets/styles/colors'
 import { API_URL } from '@env'
 
 const Category = ({ name, icon, onPress, isActive }) => {
-    console.log(`${API_URL}${icon}`)
     const styles = StyleSheet.create({
         container: {
             alignItems: 'center',

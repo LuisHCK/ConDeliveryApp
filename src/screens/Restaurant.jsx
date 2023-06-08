@@ -118,9 +118,9 @@ const Restaurant = () => {
                     </ScrollView>
                 </SafeAreaView>
             </PageContainer>
-            {cartItems.length > 0 && (
+            {cartItems?.length > 0 && (
                 <SafeAreaView>
-                    <CartFooter />
+                    <CartFooter restaurantId={params.id} />
                 </SafeAreaView>
             )}
         </Fragment>

@@ -40,7 +40,7 @@ const MenuItem = ({
                         if (isAdded) {
                             onRemove(id)
                         } else {
-                            onSelect({ id, price, quantity: 1 })
+                            onSelect({ id, name, photo, price, quantity: 1 })
                         }
                     }}
                 >
@@ -99,7 +99,8 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 16,
-        fontWeight: '600'
+        fontWeight: '600',
+        maxWidth: 140
     },
     description: {
         fontSize: 12,

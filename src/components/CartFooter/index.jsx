@@ -5,12 +5,12 @@ import colors from '../../assets/styles/colors'
 import { formatPrice } from '../../utils/format'
 import { useNavigation } from '@react-navigation/native'
 
-export const CartFooter = () => {
+export const CartFooter = ({ restaurantId }) => {
     const { cartItems, cartTotal } = useContext(RestaurantContext)
     const navigation = useNavigation()
 
     const goToCart = () => {
-        navigation.navigate('Cart')
+        navigation.navigate('Cart', { restaurantId })
     }
 
     return (

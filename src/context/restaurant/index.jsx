@@ -17,19 +17,8 @@ export const RestaurantProvider = ({ children }) => {
      * Add or update item
      * @param {CartItem} cartItem
      */
-    const updateCartItem = (cartItem) => {
-        setCartItems((prev) => {
-            if (prev.find((item) => item.id === cartItem.id)) {
-                return prev.map((item) => {
-                    if (item.id === cartItem.id) {
-                        return cartItem
-                    } else {
-                        item
-                    }
-                })
-            }
-            return [...prev, cartItem]
-        })
+    const addCartItem = (cartItem) => {
+        setCartItems([...cartItems, cartItem])
     }
 
     /**
@@ -44,10 +33,21 @@ export const RestaurantProvider = ({ children }) => {
         setCartItems([])
     }
 
+    const setQuantity = (item) => {
+        setCartItems((prev) =>
+            prev.map((i) => {
+                if (i.id === item.id) {
+                    return { ...i, quantity: item.quantity }
+                }
+                return i
+            })
+        )
+    }
+
     const cartTotal = useMemo(
         () =>
             cartItems.reduce((prev, item) => {
-                return prev + (item.quantity * item.price)
+                return prev + item.quantity * item.price
             }, 0),
         [cartItems]
     )
@@ -56,9 +56,10 @@ export const RestaurantProvider = ({ children }) => {
         <RestaurantContext.Provider
             value={{
                 cartItems,
-                updateCartItem,
+                addCartItem,
                 removeItem,
                 clearCart,
+                setQuantity,
                 cartTotal
             }}
         >

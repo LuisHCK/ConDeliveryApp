@@ -5,7 +5,7 @@ import MenuItem from './MenuItem'
 import { RestaurantContext } from 'src/context/restaurant'
 
 const Menu = ({ items }) => {
-    const { cartItems, updateCartItem, removeItem } =
+    const { cartItems, addCartItem, removeItem } =
         useContext(RestaurantContext)
 
     return (
@@ -20,9 +20,9 @@ const Menu = ({ items }) => {
                     price={item.price}
                     category={item.category}
                     isAdded={
-                        cartItems.findIndex((i) => i.id === item.id) !== -1
+                        cartItems?.findIndex((i) => i.id === item.id) !== -1
                     }
-                    onSelect={updateCartItem}
+                    onSelect={addCartItem}
                     onRemove={removeItem}
                 />
             ))}

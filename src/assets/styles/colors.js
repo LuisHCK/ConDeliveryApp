@@ -6,7 +6,9 @@ export default {
     extraLight: '#F8F8FA',
     white: '#FFFFFF',
     background: '#E5E5E5',
-    gold: '#FFB200'
+    gold: '#FFB200',
+    error: '#FF5722',
+    lightError: '#FFAB91'
 }
 
 export const transparentize = (color, amount) => {
