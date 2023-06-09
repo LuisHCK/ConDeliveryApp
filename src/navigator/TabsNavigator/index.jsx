@@ -5,7 +5,6 @@ import TabBar from './TabBar'
 import Icons from 'src/components/Icons'
 
 import Home from 'src/screens/Home'
-import Search from 'src/screens/Search'
 import Orders from 'src/screens/Orders'
 import Profile from 'src/screens/Profile'
 import colors from 'src/assets/styles/colors'
@@ -32,16 +31,6 @@ const Navigator = () => {
                     tabBarLabel: 'Inicio',
                     title: 'Inicio',
                     icon: Icons.Home,
-                    ...commonOptions
-                }}
-            />
-            <Tab.Screen
-                name="Search"
-                component={Search}
-                options={{
-                    tabBarLabel: 'Buscar',
-                    title: 'Buscar',
-                    icon: Icons.Search,
                     ...commonOptions
                 }}
             />
