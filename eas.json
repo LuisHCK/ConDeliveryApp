@@ -13,6 +13,9 @@
         "production": {
             "env": {
                 "API_URL": "https://con.delivery"
+            },
+            "android": {
+                "buildType": "apk"
             }
         }
     },
