@@ -1,28 +1,42 @@
 {
-    "expo": {
-        "name": "mobileapp",
-        "slug": "mobileapp",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./src/assets/icon.png",
-        "userInterfaceStyle": "light",
-        "splash": {
-            "image": "./src/assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
-        },
-        "assetBundlePatterns": ["**/*"],
-        "ios": {
-            "supportsTablet": true
-        },
-        "android": {
-            "adaptiveIcon": {
-                "foregroundImage": "./src/assets/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
-            }
-        },
-        "web": {
-            "favicon": "./src/assets/favicon.png"
-        }
+  "expo": {
+    "name": "ConDelivery",
+    "slug": "condelivery",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "con.delivery.condelivery",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1bf0c525-49af-4fdd-b641-87bc61cf9e8c"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1bf0c525-49af-4fdd-b641-87bc61cf9e8c"
     }
+  }
 }
