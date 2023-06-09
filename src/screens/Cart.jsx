@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import AddressPreview from '../components/AddressPreview'
 import OrderItem from '../components/OrderItem'
 import { RestaurantContext } from '../context/restaurant'
-import { useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { useMutation, useQuery } from '@apollo/client'
 import { CREATE_ORDER, GET_RESTAURANT } from '../apollo/queries'
 import { sanitizeObject } from '../utils/strapi'
@@ -15,12 +15,13 @@ import Spinner from 'react-native-loading-spinner-overlay'
 import colors from '../assets/styles/colors'
 
 export default function CartPage() {
-    const { cartItems, setQuantity, removeItem, cartTotal } =
+    const { cartItems, setQuantity, removeItem, cartTotal, clearCart } =
         useContext(RestaurantContext)
     const [userAddress, setUserAddress] = useState(null)
     const [showEdit, setShowEdit] = useState(false)
     const [restaurant, setRestaurant] = useState({})
     const { params } = useRoute()
+    const navigation = useNavigation()
     const { data: rawData } = useQuery(GET_RESTAURANT, {
         variables: { restaurantId: params.restaurantId }
     })
@@ -58,13 +59,47 @@ export default function CartPage() {
                 price: i.price,
                 item_id: i.id
             })),
+            restaurant: restaurant.id,
             userAddress
         }
         createOrder({ variables: { data: payload } })
     }
 
-    const completeOrder = ()=> {
-        
+    const completeOrder = async () => {
+        const order = sanitizeObject(orderData.createOrder.data)
+        const rawOrders = await AsyncStorage.getItem('orders')
+        const orderPayload = {
+            id: order.id,
+            total: order.total,
+            date: order.createdAt,
+            restaurant: {
+                name: order.restaurant?.name
+            }
+        }
+
+        if (rawOrders) {
+            /**@type any[] */
+            const savedOrders = JSON.parse(rawOrders)
+            // Store last order
+            savedOrders.push(orderPayload)
+            await AsyncStorage.setItem(
+                'orders',
+                JSON.stringify(savedOrders),
+                () => {}
+            )
+        } else {
+            await AsyncStorage.setItem(
+                'orders',
+                JSON.stringify([orderPayload]),
+                () => {}
+            )
+        }
+
+        navigation.navigate('OrderConfirmation', { orderId: order.id })
+
+        setTimeout(() => {
+            clearCart()
+        }, 300);
     }
 
     /**
@@ -98,7 +133,7 @@ export default function CartPage() {
 
     useEffect(() => {
         if (!loadingOrder && orderData) {
-            console.log(sanitizeObject(orderData.createOrder.data))
+            completeOrder()
         }
     }, [orderData, loadingOrder])
 

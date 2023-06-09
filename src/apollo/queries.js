@@ -213,6 +213,8 @@ export const CREATE_ORDER = gql`
         createOrder(data: $data) {
         data {
             attributes {
+            total
+            status
             note
             orderItems {
                 id
@@ -221,15 +223,83 @@ export const CREATE_ORDER = gql`
                 price
                 item_id
             }
-            total
             userAddress {
                 id
                 address
                 name
                 phone
             }
+            restaurant {
+                data {
+                id
+                attributes {
+                    name
+                    address
+                    description
+                }
+                }
             }
+            createdAt
+            updatedAt
+            }
+            id
         }
         }
+  }
+`
+
+export const GET_ORDER = gql`
+query Orders($orderId: ID) {
+    order(id: $orderId) {
+      data {
+        attributes {
+          total
+          status
+          note
+          orderItems {
+            id
+            name
+            quantity
+            price
+            item_id
+          }
+          userAddress {
+            id
+            address
+            name
+            phone
+          }
+          restaurant {
+            data {
+              id
+              attributes {
+                name
+                phone
+                phone2
+                photo {
+                  data {
+                    id
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                description
+                address
+                featured
+                createdAt
+                updatedAt
+                taxFreeMinTotal
+                rating
+                publishedAt
+              }
+            }
+          }
+          createdAt
+          updatedAt
+        }
+        id
+      }
     }
+  }
 `

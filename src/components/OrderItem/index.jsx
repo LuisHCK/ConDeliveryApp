@@ -20,6 +20,7 @@ const OrderItem = ({ item, onChange, onDelete }) => {
                     quantity={item.quantity}
                     onChange={onChange}
                     onDelete={onDelete}
+                    productName={item.name}
                 />
             </View>
             <Text style={styles.itemPrice}>{formatPrice(item.price)}</Text>

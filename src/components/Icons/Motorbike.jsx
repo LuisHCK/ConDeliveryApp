@@ -10,7 +10,7 @@ const SvgMotorbike = (props) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        className="motorbike_svg__icon motorbike_svg__icon-tabler motorbike_svg__icon-tabler-motorbike"
+        viewBox="0 0 24 24"
         {...props}
     >
         <Path stroke="none" d="M0 0h24v24H0z" />

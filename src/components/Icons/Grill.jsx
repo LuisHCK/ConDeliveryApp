@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
-const SvgPhone = (props) => (
+const GrillIcon = (props) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
         width={24}
@@ -14,7 +14,7 @@ const SvgPhone = (props) => (
         {...props}
     >
         <Path stroke="none" d="M0 0h24v24H0z" />
-        <Path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
+        <Path d="M19 8H5a6 6 0 0 0 6 6h2a6 6 0 0 0 6-5.775V8zM17 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 14l1 2M9 14l-3 6M15 18H7M15 5V4M12 5V4M9 5V4" />
     </Svg>
 )
-export default SvgPhone
+export default GrillIcon

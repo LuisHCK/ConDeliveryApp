@@ -50,3 +50,11 @@ export const sanitizeObject = (item) => {
     }
     return sanitized
 }
+
+export const statuses = [
+    "pendiente",
+    "en_proceso",
+    "enviado",
+    "completado",
+    "cancelado",
+]

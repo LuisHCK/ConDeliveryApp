@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import colors from '../../assets/styles/colors'
 
-const Button = ({ label, variant, onPress, style, disabled }) => {
+const Button = ({ label, variant, onPress, style, disabled, icon }) => {
     return (
         <TouchableOpacity
             style={[
@@ -15,6 +15,7 @@ const Button = ({ label, variant, onPress, style, disabled }) => {
             onPress={onPress}
             disabled={disabled}
         >
+            {icon}
             <Text style={[styles.label, styles[variant]]}>{label}</Text>
         </TouchableOpacity>
     )
@@ -40,7 +41,7 @@ export default Button
 const styles = StyleSheet.create({
     button: {
         borderRadius: 20,
-        padding: 20,
+        padding: 14,
         alignItems: 'center',
         justifyContent: 'center',
         // Shadow
@@ -51,7 +52,8 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.17,
         shadowRadius: 2.54,
-        elevation: 3
+        elevation: 3,
+        flexDirection: 'row'
     },
     label: {
         fontSize: 18,

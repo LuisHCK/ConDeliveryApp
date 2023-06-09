@@ -16,3 +16,13 @@ export const formatPrice = (price) => {
     }
     return formatter.format(price)
 }
+
+/**
+ * Print number in invoice format
+ * @param {Number} n 
+ * @returns String
+ */
+export const invoiceFormat = (n) => {
+    console.log(n)
+    return ('0000' + n).slice(-4)
+}

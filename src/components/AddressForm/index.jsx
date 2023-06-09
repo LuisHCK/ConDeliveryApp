@@ -84,7 +84,7 @@ const AddressForm = ({ data, onSubmit }) => {
             />
             {!!errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
             <Button
-                label="Continue"
+                label="Guardar"
                 variant="light"
                 onPress={saveHanlder}
                 style={styles.button}
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
     textInput: {
         backgroundColor: colors.extraLight,
         borderRadius: 16,
-        paddingHorizontal: 24,
-        paddingVertical: 18,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
         marginBottom: 10
     },
     button: {

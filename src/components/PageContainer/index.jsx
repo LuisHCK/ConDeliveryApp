@@ -2,8 +2,8 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import colors from 'src/assets/styles/colors'
 
-const PageContainer = ({ children }) => {
-    return <View style={styles}>{children}</View>
+const PageContainer = ({ children, style }) => {
+    return <View style={[styles, style]}>{children}</View>
 }
 
 const styles = StyleSheet.create({

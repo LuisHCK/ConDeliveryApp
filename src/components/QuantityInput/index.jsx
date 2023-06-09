@@ -7,14 +7,14 @@ import colors from '../../assets/styles/colors'
 const QuantityInput = ({ quantity, onChange, onDelete, productName }) => {
     const confirmDelete = () => {
         Alert.alert(
-            'Delete product from cart',
-            `Are you sure you want to delete ${productName} from your cart?`,
+            'Eliminar platillo de tu pedido',
+            `¿Quieres eliminar ${productName} del pedido?`,
             [
                 {
                     text: 'No',
                     style: 'cancel'
                 },
-                { text: 'Yes', onPress: onDelete }
+                { text: 'Si', onPress: onDelete }
             ]
         )
     }
