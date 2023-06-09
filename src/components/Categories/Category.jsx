@@ -16,12 +16,13 @@ const Category = ({ name, icon, onPress, isActive }) => {
             textWrap: 'nowrap',
             borderRadius: 24,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            overflow: 'hidden'
         },
         icon: {
-            width: 32,
-            height: 32,
-            tintColor: isActive ? colors.extraLight : colors.light
+            width: '100%',
+            height: '100%',
+
         },
         label: {
             textAlign: 'center'

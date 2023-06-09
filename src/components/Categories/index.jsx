@@ -13,7 +13,7 @@ const Categories = ({ onSelect, selectedCategory }) => {
         id: 'all',
         name: 'Popular',
         icon: {
-            url: '/uploads/all_6c1e41a352.png'
+            url: '/uploads/all_categories_a919d2fe95.png'
         }
     }
 
